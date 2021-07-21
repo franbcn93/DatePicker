@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para ver una prueba [Haz click aquí...](https://franbcn93.github.io/DatePicker).
 
 ## Available Scripts
 
