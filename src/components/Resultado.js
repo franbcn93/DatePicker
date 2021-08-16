@@ -12,7 +12,7 @@ export const Resultado = () => {
       </h2>
       {/* checkInDate:   Salida desde otro componente usando useContext */}
       {checkInDate ? (
-        <h3>Check-in-Date: {checkInDate.toString().substr(0, 15)}</h3>
+        <h3>Check-in-Date: {checkInDate.toString().substr(0, 15)} </h3>
       ) : null}
       {/* checkOutDate: Salida desde otro componente usando useContext */}
       {checkOutDate ? (

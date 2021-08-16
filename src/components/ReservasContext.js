@@ -33,11 +33,24 @@ function fecha(escogido, formato1, formato2, formato3, formato4) {
   );
 }
 
+function diferenciaFechas(entrada, salida) {
+  const date1 = new Date(entrada);
+  const date2 = new Date(salida);
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
+
+function formatoFecha(dia) {
+  const fecha =
+    dia.getDate() + "/" + (dia.getMonth() + 1) + "/" + dia.getFullYear();
+  return fecha;
+}
+
 // Creamos el Provider
 const ReservasProvider = (props) => {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
-  // const [fechaEntrada, setFechaEntrada] = useState("");
 
   const handleCheckInDate = (date) => {
     setCheckInDate(date);
@@ -71,6 +84,13 @@ const ReservasProvider = (props) => {
             />
           </div>
         </div>
+        {checkInDate ? (
+          <p>Fecha de entrada: {formatoFecha(checkInDate)}</p>
+        ) : null}
+        {checkOutDate ? (
+          <p>Fecha de salida: {formatoFecha(checkOutDate)}</p>
+        ) : null}
+
         {checkInDate && checkOutDate && (
           <div className="summary">
             <p>
@@ -78,6 +98,23 @@ const ReservasProvider = (props) => {
               {fecha(checkInDate, "dddd", "D", "MMMM", "yyyy")}
               {", hasta el "}
               {fecha(checkOutDate, "dddd", "D", "MMMM", "yyyy")}.
+            </p>
+            <p>
+              {diferenciaFechas(
+                checkInDate.getMonth() +
+                  1 +
+                  "/" +
+                  checkInDate.getDate() +
+                  "/" +
+                  checkInDate.getFullYear(),
+                checkOutDate.getMonth() +
+                  1 +
+                  "/" +
+                  checkOutDate.getDate() +
+                  "/" +
+                  checkOutDate.getFullYear()
+              )}{" "}
+              días de diferencia entre las 2 fechas.
             </p>
           </div>
         )}
