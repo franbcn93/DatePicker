@@ -3,9 +3,9 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 
-// Cambiamos el idioma a Español
-{
-  moment.lang("es", {
+function fecha(escogido, formato1, formato2, formato3, formato4) {
+  // Cambiamos el idioma a Español
+  moment.locale("es", {
     months:
       "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split(
         "_"
@@ -16,9 +16,7 @@ import "react-datepicker/dist/react-datepicker.css";
     weekdaysShort: "Dom._Lun._Mar._Mier._Jue._Vier._Sab.".split("_"),
     weekdaysMin: "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"),
   });
-}
 
-function fecha(escogido, formato1, formato2, formato3, formato4) {
   const esc = moment(escogido);
   return (
     esc.format(formato1) +
@@ -46,6 +44,8 @@ export const BookHotel = () => {
 
   return (
     <div className="divBooks">
+      <h1>Ejercicios de pruebas</h1>
+      <h2>Simulacro de una reserva de un Hotel</h2>
       <div className="input-container">
         <div>
           <label>Check-in</label>
@@ -74,6 +74,7 @@ export const BookHotel = () => {
           </p>
         </div>
       )}
+      <hr />
     </div>
   );
 };
