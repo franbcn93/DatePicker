@@ -49,6 +49,7 @@ h1 {
 }
 
 hr {
+  margin: auto;
   margin-top: 40px;
   width: 80%;
   border-top: 3px dashed black;

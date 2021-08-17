@@ -18,6 +18,7 @@ export const Resultado = () => {
       {checkOutDate ? (
         <h3>Check-out-Date: {checkOutDate.toString().substr(0, 15)}</h3>
       ) : null}
+      <hr></hr>
     </div>
   );
 };
